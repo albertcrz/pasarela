@@ -31,7 +31,7 @@ export default function CheckoutForm() {
     if (error.type === "card_error" || error.type === "validation_error") {
       setMessage(error.message);
     } else {
-      setMessage("An unexpected error occured.");
+      setMessage("Ha ocurrido un error");
     }
 
     setIsProcessing(false);
@@ -42,9 +42,10 @@ export default function CheckoutForm() {
       <PaymentElement id="payment-element" />
       <button disabled={isProcessing || !stripe || !elements} id="submit">
         <span id="button-text">
-          {isProcessing ? "Processing ... " : "Pay now"}
+          {isProcessing ? "Procesando el pago " : "Pague ahora"}
         </span>
       </button>
+     
       {/* Show any error or success messages */}
       {message && <div id="payment-message">{message}</div>}
     </form>
